@@ -1,7 +1,7 @@
 # our base image
 FROM alpine:3.5
 
-RUN apt update && apt install openjdk-11-jdk -y
+RUN sudo apt update && sudo apt install openjdk-11-jdk -y
 
 # Install python and pip
 RUN apk add --update py2-pip
