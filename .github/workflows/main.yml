@@ -1,16 +1,30 @@
+name: Build and Tag
+
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Generate build number
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Generate build tag number
+      id: build-tag
       uses: onyxmueller/build-tag-number@v1
       with:
-        token: ${{secrets.github_token}}        
-    - name: Print new build number
-      run: echo "Build number is $BUILD_NUMBER"
-      # Or, if you're on Windows: echo "Build number is ${env:BUILD_NUMBER}"
+        # Example input parameters, if any are required by the action
+        major: 1
+        minor: 0
+
+    - name: Echo build tag number
+      run: echo "Build tag number is ${{ steps.build-tag.outputs.tag }}"
