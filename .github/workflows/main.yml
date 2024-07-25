@@ -1,6 +1,9 @@
 name: Print Build Number
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main  
 
 jobs:
   print-build-number:
