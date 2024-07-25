@@ -22,7 +22,7 @@ jobs:
       id: build-tag
       uses: onyxmueller/build-tag-number@v1
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.PAT_TOKEN }}
         prefix: 'v1.0'  # Example prefix if needed
 
     - name: Echo build tag number
