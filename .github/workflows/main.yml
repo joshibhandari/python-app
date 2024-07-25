@@ -25,5 +25,5 @@ jobs:
         token: ${{ secrets.PAT_TOKEN }}
         prefix: 'v1.0'  # Example prefix if needed
 
-    - name: Echo build tag number
+    - name: Echo build tag number 
       run: echo "Build tag number is ${{ steps.build-tag.outputs.tag }}"
