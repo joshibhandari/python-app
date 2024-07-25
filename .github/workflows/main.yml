@@ -22,9 +22,8 @@ jobs:
       id: build-tag
       uses: onyxmueller/build-tag-number@v1
       with:
-        # Example input parameters, if any are required by the action
-        major: 1
-        minor: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+        prefix: 'v1.0'  # Example prefix if needed
 
     - name: Echo build tag number
       run: echo "Build tag number is ${{ steps.build-tag.outputs.tag }}"
